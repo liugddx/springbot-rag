@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: springboot-rag
+  threads:
+    virtual:
+      enabled: true
+  ai:
+    ollama:
+      base-url: "http://localhost:11434"
+      embedding:
+        model: "mxbai-embed-large:latest"
+      chat:
+        model: "llama3:latest"
+        options:
+          temperature: 0.3
+          top-k: 2
+          top-p: 0.2
+          num-g-p-u: 1 # enable Metal gpu on MAC
+    vectorstore:
+      qdrant:
+        host: 172.30.34.130
+        port: 6334
+        collection-name: infoq-report
